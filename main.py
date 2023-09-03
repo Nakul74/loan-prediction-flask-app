@@ -17,6 +17,11 @@ client_ids = data.index.tolist()
 # Retrieve the classifier from the model pipeline
 classifier = model.named_steps['classifier']
 
+@app.route("/", methods=["GET"])
+def home():
+    return jsonify({"message": "Sever is on"})
+
+
 @app.route("/predict", methods=["POST"])
 def predict():
     d = request.json
